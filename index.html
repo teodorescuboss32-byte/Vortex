@@ -13,7 +13,7 @@
         }
 
         body {
-            background-color: #0f1015;
+            background-color: #0b0c10;
             color: #ffffff;
             display: flex;
             flex-direction: column;
@@ -21,17 +21,38 @@
         }
 
         header {
-            background-color: #1a1c23;
+            background-color: #1f2833;
             padding: 20px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 2px solid #2a2e3d;
+            border-bottom: 2px solid #28313b;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
         }
 
         header h1 {
-            color: #00ff88;
-            font-size: 24px;
+            color: #66fcf1;
+            font-size: 26px;
+            letter-spacing: 1px;
+        }
+
+        .status-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #0b0c10;
+            padding: 6px 14px;
+            border-radius: 20px;
+            border: 1px solid #28313b;
+            font-size: 14px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            background-color: #45a29e;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #45a29e;
         }
 
         .container {
@@ -44,47 +65,55 @@
 
         .hero {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
 
         .hero h2 {
-            font-size: 36px;
-            margin-bottom: 10px;
+            font-size: 40px;
+            margin-bottom: 12px;
+            background: linear-gradient(90deg, #66fcf1, #45a29e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .hero p {
-            color: #8b9bb4;
-            font-size: 16px;
+            color: #c5c6c7;
+            font-size: 17px;
         }
 
         .games-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
+            gap: 25px;
         }
 
         .game-card {
-            background-color: #1a1c23;
-            border-radius: 12px;
+            background-color: #1f2833;
+            border-radius: 14px;
             overflow: hidden;
-            border: 1px solid #2a2e3d;
-            transition: transform 0.2s, border-color 0.2s;
+            border: 1px solid #28313b;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
         }
 
         .game-card:hover {
-            transform: translateY(-5px);
-            border-color: #00ff88;
+            transform: translateY(-8px);
+            border-color: #66fcf1;
+            box-shadow: 0 10px 25px rgba(102, 252, 241, 0.15);
         }
 
         .game-img {
-            height: 160px;
-            background-color: #2a2e3d;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #8b9bb4;
-            font-size: 18px;
+            height: 170px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .game-img::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, transparent 50%, #1f2833 100%);
         }
 
         .game-info {
@@ -93,78 +122,93 @@
 
         .game-info h3 {
             font-size: 20px;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
+            color: #ffffff;
         }
 
         .game-info p {
-            color: #8b9bb4;
+            color: #c5c6c7;
             font-size: 14px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            line-height: 1.4;
         }
 
         .play-btn {
-            background-color: #00ff88;
-            color: #0f1015;
+            background: linear-gradient(135deg, #66fcf1, #45a29e);
+            color: #0b0c10;
             border: none;
-            padding: 10px 20px;
-            border-radius: 6px;
+            padding: 12px 20px;
+            border-radius: 8px;
             font-weight: bold;
+            font-size: 15px;
             cursor: pointer;
             width: 100%;
-            transition: background-color 0.2s;
+            transition: opacity 0.2s, transform 0.1s;
+            box-shadow: 0 4px 12px rgba(102, 252, 241, 0.3);
         }
 
         .play-btn:hover {
-            background-color: #00cc6e;
+            opacity: 0.9;
+        }
+
+        .play-btn:active {
+            transform: scale(0.98);
         }
 
         footer {
             text-align: center;
-            padding: 20px;
-            background-color: #1a1c23;
-            color: #8b9bb4;
+            padding: 25px;
+            background-color: #1f2833;
+            color: #c5c6c7;
             font-size: 14px;
-            border-top: 1px solid #2a2e3d;
+            border-top: 1px solid #28313b;
+            margin-top: auto;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>⚡ Vortex</h1>
-        <div style="color: #8b9bb4;">Status: <span style="color: #00ff88;">Online</span></div>
+        <h1>⚡ VORTEX</h1>
+        <div class="status-badge">
+            <div class="dot"></div>
+            <span>Servere: <strong>Active</strong></span>
+        </div>
     </header>
 
     <div class="container">
         <div class="hero">
             <h2>Jocuri de Windows direct în browser</h2>
-            <p>Alege un joc și începe să te joci instant, fără instalare.</p>
+            <p>Selectează un titlu și lansează-te în acțiune instantaneu.</p>
         </div>
 
         <div class="games-grid">
+            <!-- CS:GO 2 -->
             <div class="game-card">
-                <div class="game-img">[ Imagine CS:GO 2 ]</div>
+                <div class="game-img" style="background-image: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=600&auto=format&fit=crop');"></div>
                 <div class="game-info">
                     <h3>CS:GO 2</h3>
-                    <p>Acțiune multiplayer tactică.</p>
+                    <p>Shooter tactic multiplayer cu meciuri intense.</p>
                     <button class="play-btn" onclick="pornesteJocul('CS:GO 2')">Joacă Acum</button>
                 </div>
             </div>
 
+            <!-- GTA V -->
             <div class="game-card">
-                <div class="game-img">[ Imagine GTA V ]</div>
+                <div class="game-img" style="background-image: url('https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?q=80&w=600&auto=format&fit=crop');"></div>
                 <div class="game-info">
                     <h3>GTA V</h3>
-                    <p>Open-world în Los Santos.</p>
+                    <p>Explorează lumea deschisă din Los Santos.</p>
                     <button class="play-btn" onclick="pornesteJocul('GTA V')">Joacă Acum</button>
                 </div>
             </div>
 
+            <!-- Minecraft -->
             <div class="game-card">
-                <div class="game-img">[ Imagine Minecraft ]</div>
+                <div class="game-img" style="background-image: url('https://images.unsplash.com/photo-1627856013091-fed6e4e300d2?q=80&w=600&auto=format&fit=crop');"></div>
                 <div class="game-info">
                     <h3>Minecraft</h3>
-                    <p>Construiește și supraviețuiește.</p>
+                    <p>Construiește tot ce îți imaginezi în 3D.</p>
                     <button class="play-btn" onclick="pornesteJocul('Minecraft')">Joacă Acum</button>
                 </div>
             </div>
@@ -172,12 +216,12 @@
     </div>
 
     <footer>
-        <p>&copy; 2026 Vortex Project. Toate drepturile rezervate.</p>
+        <p>&copy; 2026 Vortex Cloud Gaming. Toate drepturile rezervate.</p>
     </footer>
 
     <script>
         function pornesteJocul(numeJoc) {
-            alert("Ai apăsat să pornești: " + numeJoc + "! Aici vom conecta stream-ul în curând.");
+            alert("Se inițializează fluxul cloud pentru: " + numeJoc + ". Pregătește-te de joacă!");
         }
     </script>
 
