@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vortex - Jocuri Windows în Browser</title>
+    <title>Vortex - Jocuri în Browser</title>
     <style>
         * {
             box-sizing: border-box;
@@ -65,7 +65,7 @@
 
         .hero {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
         }
 
         .hero h2 {
@@ -93,7 +93,6 @@
             overflow: hidden;
             border: 1px solid #28313b;
             transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
         }
 
         .game-card:hover {
@@ -155,6 +154,46 @@
             transform: scale(0.98);
         }
 
+        /* Secțiunea unde va rula jocul */
+        #emulator-container {
+            display: none;
+            margin-top: 30px;
+            text-align: center;
+            background: #1f2833;
+            padding: 20px;
+            border-radius: 14px;
+            border: 1px solid #66fcf1;
+        }
+
+        #emulator-container h3 {
+            margin-bottom: 15px;
+            color: #66fcf1;
+        }
+
+        iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+            border-radius: 8px;
+            background: #000;
+        }
+
+        .back-btn {
+            background: #28313b;
+            color: #fff;
+            border: 1px solid #66fcf1;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .back-btn:hover {
+            background: #66fcf1;
+            color: #0b0c10;
+        }
+
         footer {
             text-align: center;
             padding: 25px;
@@ -172,44 +211,52 @@
         <h1>⚡ VORTEX</h1>
         <div class="status-badge">
             <div class="dot"></div>
-            <span>Servere: <strong>Active</strong></span>
+            <span>Browser Engine: <strong>Activ</strong></span>
         </div>
     </header>
 
     <div class="container">
-        <div class="hero">
-            <h2>Jocuri de Windows direct în browser</h2>
-            <p>Selectează un titlu și lansează-te în acțiune instantaneu.</p>
+        <div class="hero" id="hero-section">
+            <h2>Jocuri direct în browser</h2>
+            <p>Rulează instant, fără instalare sau lag.</p>
         </div>
 
-        <div class="games-grid">
-            <!-- CS:GO 2 -->
+        <!-- Zona de joc (ascunsă până apeși pe Joacă) -->
+        <div id="emulator-container">
+            <button class="back-btn" onclick="inchideJocul()">⬅ Înapoi la meniu</title> Înapoi</button>
+            <h3 id="game-title">Joc</h3>
+            <iframe id="game-frame" src=""></iframe>
+        </div>
+
+        <!-- Grila cu jocuri -->
+        <div class="games-grid" id="grid-jocuri">
+            <!-- DOOM Classic -->
             <div class="game-card">
-                <div class="game-img" style="background-image: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=600&auto=format&fit=crop');"></div>
+                <div class="game-img" style="background-image: url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=600&auto=format&fit=crop');"></div>
                 <div class="game-info">
-                    <h3>CS:GO 2</h3>
-                    <p>Shooter tactic multiplayer cu meciuri intense.</p>
-                    <button class="play-btn" onclick="pornesteJocul('CS:GO 2')">Joacă Acum</button>
+                    <h3>DOOM (Classic)</h3>
+                    <p>Legendary FPS game, rulează nativ în browser.</p>
+                    <button class="play-btn" onclick="pornesteJocul('DOOM (Classic)', 'https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fdoom.jsdos')">Joacă Acum</button>
                 </div>
             </div>
 
-            <!-- GTA V -->
+            <!-- Quake -->
             <div class="game-card">
-                <div class="game-img" style="background-image: url('https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?q=80&w=600&auto=format&fit=crop');"></div>
+                <div class="game-img" style="background-image: url('https://images.unsplash.com/photo-1538481199705-c710c4e965fc?q=80&w=600&auto=format&fit=crop');"></div>
                 <div class="game-info">
-                    <h3>GTA V</h3>
-                    <p>Explorează lumea deschisă din Los Santos.</p>
-                    <button class="play-btn" onclick="pornesteJocul('GTA V')">Joacă Acum</button>
+                    <h3>Quake</h3>
+                    <p>Acțiune retro în 3D pe motor web.</p>
+                    <button class="play-btn" onclick="pornesteJocul('Quake', 'https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Foriginal%2F2%2Fquake.jsdos')">Joacă Acum</button>
                 </div>
             </div>
 
-            <!-- Minecraft -->
+            <!-- Wolfenstein 3D -->
             <div class="game-card">
-                <div class="game-img" style="background-image: url('https://images.unsplash.com/photo-1627856013091-fed6e4e300d2?q=80&w=600&auto=format&fit=crop');"></div>
+                <div class="game-img" style="background-image: url('https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=600&auto=format&fit=crop');"></div>
                 <div class="game-info">
-                    <h3>Minecraft</h3>
-                    <p>Construiește tot ce îți imaginezi în 3D.</p>
-                    <button class="play-btn" onclick="pornesteJocul('Minecraft')">Joacă Acum</button>
+                    <h3>Wolfenstein 3D</h3>
+                    <p>Primul mare shooter din istorie, direct în tab.</p>
+                    <button class="play-btn" onclick="pornesteJocul('Wolfenstein 3D', 'https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fwolf3d.jsdos')">Joacă Acum</button>
                 </div>
             </div>
         </div>
@@ -220,8 +267,22 @@
     </footer>
 
     <script>
-        function pornesteJocul(numeJoc) {
-            alert("Se inițializează fluxul cloud pentru: " + numeJoc + ". Pregătește-te de joacă!");
+        function pornesteJocul(nume, urlJoc) {
+            document.getElementById('grid-jocuri').style.display = 'none';
+            document.getElementById('hero-section').style.display = 'none';
+            
+            const emulator = document.getElementById('emulator-container');
+            emulator.style.display = 'block';
+            
+            document.getElementById('game-title').innerText = nume;
+            document.getElementById('game-frame').src = urlJoc;
+        }
+
+        function inchideJocul() {
+            document.getElementById('game-frame').src = '';
+            document.getElementById('emulator-container').style.display = 'none';
+            document.getElementById('grid-jocuri').style.display = 'grid';
+            document.getElementById('hero-section').style.display = 'block';
         }
     </script>
 
