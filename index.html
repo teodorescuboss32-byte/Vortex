@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vortex - Jocuri Windows în Browser</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0f1015;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #1a1c23;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #2a2e3d;
+        }
+
+        header h1 {
+            color: #00ff88;
+            font-size: 24px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            flex: 1;
+            width: 100%;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            color: #8b9bb4;
+            font-size: 16px;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .game-card {
+            background-color: #1a1c23;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #2a2e3d;
+            transition: transform 0.2s, border-color 0.2s;
+            cursor: pointer;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            border-color: #00ff88;
+        }
+
+        .game-img {
+            height: 160px;
+            background-color: #2a2e3d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #8b9bb4;
+            font-size: 18px;
+        }
+
+        .game-info {
+            padding: 20px;
+        }
+
+        .game-info h3 {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .game-info p {
+            color: #8b9bb4;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .play-btn {
+            background-color: #00ff88;
+            color: #0f1015;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.2s;
+        }
+
+        .play-btn:hover {
+            background-color: #00cc6e;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #1a1c23;
+            color: #8b9bb4;
+            font-size: 14px;
+            border-top: 1px solid #2a2e3d;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>⚡ Vortex</h1>
+        <div style="color: #8b9bb4;">Status: <span style="color: #00ff88;">Online</span></div>
+    </header>
+
+    <div class="container">
+        <div class="hero">
+            <h2>Jocuri de Windows direct în browser</h2>
+            <p>Alege un joc și începe să te joci instant, fără instalare.</p>
+        </div>
+
+        <div class="games-grid">
+            <div class="game-card">
+                <div class="game-img">[ Imagine CS:GO 2 ]</div>
+                <div class="game-info">
+                    <h3>CS:GO 2</h3>
+                    <p>Acțiune multiplayer tactică.</p>
+                    <button class="play-btn" onclick="pornesteJocul('CS:GO 2')">Joacă Acum</button>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <div class="game-img">[ Imagine GTA V ]</div>
+                <div class="game-info">
+                    <h3>GTA V</h3>
+                    <p>Open-world în Los Santos.</p>
+                    <button class="play-btn" onclick="pornesteJocul('GTA V')">Joacă Acum</button>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <div class="game-img">[ Imagine Minecraft ]</div>
+                <div class="game-info">
+                    <h3>Minecraft</h3>
+                    <p>Construiește și supraviețuiește.</p>
+                    <button class="play-btn" onclick="pornesteJocul('Minecraft')">Joacă Acum</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Vortex Project. Toate drepturile rezervate.</p>
+    </footer>
+
+    <script>
+        function pornesteJocul(numeJoc) {
+            alert("Ai apăsat să pornești: " + numeJoc + "! Aici vom conecta stream-ul în curând.");
+        }
+    </script>
+
+</body>
+</html>
